@@ -22,7 +22,8 @@ public class UsbDeviceHelper {
         int interfacesCount = usbDevice.getInterfaceCount();
         for (int i = 0; i < interfacesCount; i++) {
             UsbInterface usbInterface = usbDevice.getInterface(i);
-            if (usbInterface.getInterfaceClass() == UsbConstants.USB_CLASS_PRINTER) {
+            if (usbInterface.getInterfaceClass() == UsbConstants.USB_CLASS_PRINTER ||
+                    usbInterface.getInterfaceClass() == UsbConstants.USB_SUBCLASS_VENDOR_SPEC) {
                 return usbInterface;
             }
         }
